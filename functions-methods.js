@@ -18,8 +18,10 @@ function getEmailDomain(email) {
         return email.substr(email.indexOf("@") + 1);
     } else  return "not a valid email address";
 }
-
+console.log("Opdracht 1 \n")
 console.log(getEmailDomain(user1));
+console.log(getEmailDomain(user2));
+console.log(getEmailDomain(user3));
 
 /* Opdracht  2 */
 // Schrijf een functie genaamd typeOfEmail, die een emailadres verwacht. De functie checkt of het emailadres een novi domein heeft (medewerker), een novi-education domein (student), of extern domein (zoals gmail of outlook)
@@ -37,8 +39,11 @@ function typeOfEmail(email) {
         return "medewerker";
     } else return "extern domein"
 }
-
+console.log("\n\nOpdracht 2 \n")
 console.log(typeOfEmail(user1));
+console.log(typeOfEmail(user2));
+console.log(typeOfEmail("novi.nlaapjesk@outlook.com"));
+console.log(typeOfEmail(user3));
 
 /* Opdracht  3 */
 // Schrijf een functie genaamd checkEmailValidity, die een emailadres verwacht en checkt of het emailadres valide is. De functie returned true of false, afhankelijk van de uitkomst.
@@ -58,7 +63,7 @@ function checkEmailValidity(email) {
     if (!getEmailDomain(email).includes(".")) return false;
     return true;
 }
-
+console.log("\n\nOpdracht 3 \n")
 console.log(checkEmailValidity("n.eeken@novi.nl"));
 console.log(checkEmailValidity("tessmellink@novi.nl"));
 console.log(checkEmailValidity("n.eekenanovi.nl"));
