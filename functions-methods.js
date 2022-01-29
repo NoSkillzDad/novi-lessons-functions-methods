@@ -9,8 +9,19 @@
 // getEmailDomain("t.mellink@novi.nl") geeft novi.nl
 // getEmailDomain("a.wiersma@outlook.com") geeft outlook.com
 
+const user1 = "n.eeken@novi-education.nl";
+const user2 = "t.mellink@novi.nl";
+const user3 = "a.wiersma@outlook.com";
 
-
+function getEmailDomain(email) {
+    if (email.includes("@")) {
+        return email.substr(email.indexOf("@") + 1);
+    } else  return "not a valid email address";
+}
+console.log("Opdracht 1 \n")
+console.log(getEmailDomain(user1));
+console.log(getEmailDomain(user2));
+console.log(getEmailDomain(user3));
 
 /* Opdracht  2 */
 // Schrijf een functie genaamd typeOfEmail, die een emailadres verwacht. De functie checkt of het emailadres een novi domein heeft (medewerker), een novi-education domein (student), of extern domein (zoals gmail of outlook)
@@ -20,7 +31,19 @@
 // typeOfEmail("novi.nlaapjesk@outlook.com") geeft geeft "Extern" <-- deze moet het ook doen!
 // typeOfEmail("a.wiersma@outlook.com") geeft "Extern"
 
-
+function typeOfEmail(email) {
+    email = email.toLowerCase();
+    if (getEmailDomain(email).includes("novi-education")) {
+        return "student"
+    } else if (getEmailDomain(email).includes("novi")) {
+        return "medewerker";
+    } else return "extern domein"
+}
+console.log("\n\nOpdracht 2 \n")
+console.log(typeOfEmail(user1));
+console.log(typeOfEmail(user2));
+console.log(typeOfEmail("novi.nlaapjesk@outlook.com"));
+console.log(typeOfEmail(user3));
 
 /* Opdracht  3 */
 // Schrijf een functie genaamd checkEmailValidity, die een emailadres verwacht en checkt of het emailadres valide is. De functie returned true of false, afhankelijk van de uitkomst.
@@ -34,3 +57,15 @@
 // checkEmailValidity("n.eekenanovi.nl") geeft false - want geen @
 // checkEmailValidity("n.eeken@novinl.") geeft false - want de punt mag niet als laatst
 // checkEmailValidity("tessmellink@novi,nl") geeft false - want er staat een komma in
+
+function checkEmailValidity(email) {
+    if (!email.includes("@") || email.includes(",") || email.charAt(0) == "." || email.charAt(email.length - 1) == ".") return false;
+    if (!getEmailDomain(email).includes(".")) return false;
+    return true;
+}
+console.log("\n\nOpdracht 3 \n")
+console.log(checkEmailValidity("n.eeken@novi.nl"));
+console.log(checkEmailValidity("tessmellink@novi.nl"));
+console.log(checkEmailValidity("n.eekenanovi.nl"));
+console.log(checkEmailValidity("n.eeken@novinl."));
+console.log(checkEmailValidity("tessmellink@novi,nl"));
